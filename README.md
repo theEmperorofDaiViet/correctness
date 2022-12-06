@@ -15,7 +15,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#api-documentation">API documentation</li>
+    <li><a href="#api-documentation">API Documentation</li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -30,8 +30,8 @@ This is a part of my Introduction to Data Science's assignment at university. In
 
 ### Built With
 
-* [![Numpy][numpy.org]][Numpy-url]
-* [![Pandas][pandas.pydata.org]][Pandas-url]
+* [![Numpy][Numpy-shield]][Numpy-url]
+* [![Pandas][Pandas-shield]][Pandas-url]
 
 
 
@@ -45,7 +45,7 @@ This is a part of my Introduction to Data Science's assignment at university. In
 
 
 
-## API documentation
+## API Documentation
 
 
 
@@ -54,3 +54,11 @@ This is a part of my Introduction to Data Science's assignment at university. In
 
 
 ## Contact
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[Numpy-shield]: https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white
+[Numpy-url]: https://numpy.org
+[Pandas-shield]: https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white
+[Pandas-url]: https://pandas.pydata.org
