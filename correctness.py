@@ -4,8 +4,7 @@ import pandas as pd
 def confusion_matrix(y_true, y_pred):
     return pd.crosstab(y_true, y_pred)
 
-def accuracy(cm):
-    
+def accuracy(cm):    
     return np.diag(cm).sum() / cm.sum().sum()
 
 def precision(cm, average='binary', pos_label = 0):
