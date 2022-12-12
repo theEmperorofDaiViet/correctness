@@ -174,14 +174,14 @@ In the this module, I provide five different performance metrics and techniques 
       <b>cm: <i>DataFrame of shape (n_classes, n_classes)</i></b><br/>
       <p style="margin-left: 2.5%">Confusion matrix whose i-th row and j-th column entry indicates the number of samples with predicted label being i-th class and true label being j-th class.</p>
       <b>average: <i>{‘micro’, ‘macro’, ‘weighted’, ‘binary’}</i></b> or <b><i>None, default=’binary’</i></b><br/>
-      <p style="margin-left: 2.5%">This parameter is required for multiclass/multilabel targets. If None, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
+      <p style="margin-left: 2.5%">This parameter is required for multiclass/multilabel targets. If <code>None</code>, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
         <li style="margin-left: 2.5%"><code>'binary'</code>:</li>
         <p style="margin-left: 5%">Only report results for the class specified by <code>pos_label</code>.</p>
-        <li style="margin-left: 2.5%"><code>'micro'</code></li>
+        <li style="margin-left: 2.5%"><code>'micro'</code>:</li>
         <p style="margin-left: 5%">Calculate metrics globally by counting the total true positives, false negatives and false positives.</p>
-        <li style="margin-left: 2.5%"><code>'macro'</code></li>
+        <li style="margin-left: 2.5%"><code>'macro'</code>:</li>
         <p style="margin-left: 5%">Calculate metrics for each label, and find their unweighted mean. This does not take label imbalance into account.</p>
-        <li style="margin-left: 2.5%"><code>'weighted'</code></li>
+        <li style="margin-left: 2.5%"><code>'weighted'</code>:</li>
         <p style="margin-left: 5%">Calculate metrics for each label, and find their average weighted by support (the number of true instances for each label). This alters <code>‘macro’</code> to account for label imbalance; it can result in an F-score that is not between precision and recall.</p> 
       </p>
       <b>pos_label: <i>int, default=0</i></b><br/>
@@ -193,6 +193,53 @@ In the this module, I provide five different performance metrics and techniques 
     <td>
       <b>precision: <i>float (if <code>average</code> is not None)</i></b> or <b><i>array of float of shape (n_unique_labels)</i></b><br/>
       <p style="margin-left: 2.5%">Precision of the positive class in binary classification or weighted average of the precision of each class for the multiclass task.</p>
+    </td>
+  </tr>
+</table>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 4. correctness.recall
+
+<p style="font-size: 1.17em;"><i><b>Recall</b> tell us how good the model is at correctly predicting all the positive observations in the dataset.</i></p>
+
+<p align='center'><b><font size='5'>
+    recall = TP / (TP + FN)
+</font></b></p>
+
+<p style="font-size: 1.17em;">It does not include information about the false positives so would be more useful in the cancer example.</p>
+
+<p style="text-align:left;">
+  <pre><code>recall(cm, average='binary', pos_label = 0)</code><span style="float:right;">[<a href="https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L50">source</a>]</span></pre>
+</p>
+
+<p style="margin-left: 2.5%">Compute the recall.</p>
+
+<table style="width: 97.5%; margin-left: 2.5%">
+  <tr>
+    <th class='api'>Parameters</th>
+    <td>
+      <b>cm: <i>DataFrame of shape (n_classes, n_classes)</i></b><br/>
+      <p style="margin-left: 2.5%">Confusion matrix whose i-th row and j-th column entry indicates the number of samples with predicted label being i-th class and true label being j-th class.</p>
+      <b>average: <i>{‘micro’, ‘macro’, ‘weighted’, ‘binary’}</i></b> or <b><i>None, default=’binary’</i></b><br/>
+      <p style="margin-left: 2.5%">This parameter is required for multiclass/multilabel targets. If <code>None</code>, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
+        <li style="margin-left: 2.5%"><code>'binary'</code>:</li>
+        <p style="margin-left: 5%">Only report results for the class specified by <code>pos_label</code>.</p>
+        <li style="margin-left: 2.5%"><code>'micro'</code>:</li>
+        <p style="margin-left: 5%">Calculate metrics globally by counting the total true positives, false negatives and false positives.</p>
+        <li style="margin-left: 2.5%"><code>'macro'</code>:</li>
+        <p style="margin-left: 5%">Calculate metrics for each label, and find their unweighted mean. This does not take label imbalance into account.</p>
+        <li style="margin-left: 2.5%"><code>'weighted'</code>:</li>
+        <p style="margin-left: 5%">Calculate metrics for each label, and find their average weighted by support (the number of true instances for each label). This alters <code>‘macro’</code> to account for label imbalance; it can result in an F-score that is not between precision and recall.</p> 
+      </p>
+      <b>pos_label: <i>int, default=0</i></b><br/>
+      <p style="margin-left: 2.5%">The class to report if <code>average='binary'</code>. If <code>average != 'binary'</code>, this will be ignored.</p>   
+    </td>
+  </tr>
+  <tr>
+    <th class='api'>Returns</th>
+    <td>
+      <b>recall: <i>float (if <code>average</code> is not None)</i></b> or <b><i>array of float of shape (n_unique_labels)</i></b><br/>
+      <p style="margin-left: 2.5%">Recall of the positive class in binary classification or weighted average of the recall of each class for the multiclass task.</p>
     </td>
   </tr>
 </table>
