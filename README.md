@@ -81,7 +81,7 @@ In the this module, I provide five different performance metrics and techniques 
 
 <p style="font-size: 1.17em;">Other references may use a different convention for confusion matrix. In <code>correctness</code>'s convention, each row represents the instances in a predicted class, while each column of the matrix represents the instances in an actual class, as follows:</p>
 
-<table style="margin-left: 37.5%">
+<table align='center'>
   <tr>
     <th></th>
     <th colspan='2'>Actual class</td>
@@ -145,7 +145,54 @@ In the this module, I provide five different performance metrics and techniques 
     <th class='api'>Returns</th>
     <td>
       <b>score: <i>float</i></b><br/>
-      <p style="margin-left: 2.5%">The fraction of correctly classified samples </p>
+      <p style="margin-left: 2.5%">The fraction of correctly classified samples.</p>
+    </td>
+  </tr>
+</table>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 3. correctness.precision
+
+<p style="font-size: 1.17em;"><i><b>Precision</b> measures how good the model is at correctly identifying the positive class. In other words out of all predictions for the positive class how many were actually correct?</i></p>
+
+<p align='center'><b><font size='5'>
+    precision = TP / (TP + FP)
+</font></b></p>
+
+<p style="font-size: 1.17em;">Using alone this metric for optimising a model, we would be minimising the false positives. This might be desirable for our fraud detection example, but would be less useful for diagnosing cancer as we would have little understanding of positive observations that are missed.</p>
+
+<p style="text-align:left;">
+  <pre><code>precision(cm, average='binary', pos_label = 0)</code><span style="float:right;">[<a href="https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L10">source</a>]</span></pre>
+</p>
+
+<p style="margin-left: 2.5%">Compute the precision.</p>
+
+<table style="width: 97.5%; margin-left: 2.5%">
+  <tr>
+    <th class='api'>Parameters</th>
+    <td>
+      <b>cm: <i>DataFrame of shape (n_classes, n_classes)</i></b><br/>
+      <p style="margin-left: 2.5%">Confusion matrix whose i-th row and j-th column entry indicates the number of samples with predicted label being i-th class and true label being j-th class.</p>
+      <b>average: <i>{‘micro’, ‘macro’, ‘weighted’, ‘binary’}</i></b> or <b><i>None, default=’binary’</i></b><br/>
+      <p style="margin-left: 2.5%">This parameter is required for multiclass/multilabel targets. If None, the scores for each class are returned. Otherwise, this determines the type of averaging performed on the data:
+        <li style="margin-left: 2.5%"><code>'binary'</code>:</li>
+        <p style="margin-left: 5%">Only report results for the class specified by <code>pos_label</code>.</p>
+        <li style="margin-left: 2.5%"><code>'micro'</code></li>
+        <p style="margin-left: 5%">Calculate metrics globally by counting the total true positives, false negatives and false positives.</p>
+        <li style="margin-left: 2.5%"><code>'macro'</code></li>
+        <p style="margin-left: 5%">Calculate metrics for each label, and find their unweighted mean. This does not take label imbalance into account.</p>
+        <li style="margin-left: 2.5%"><code>'weighted'</code></li>
+        <p style="margin-left: 5%">Calculate metrics for each label, and find their average weighted by support (the number of true instances for each label). This alters <code>‘macro’</code> to account for label imbalance; it can result in an F-score that is not between precision and recall.</p> 
+      </p>
+      <b>pos_label: <i>int, default=0</i></b><br/>
+      <p style="margin-left: 2.5%">The class to report if <code>average='binary'</code>. If <code>average != 'binary'</code>, this will be ignored.</p>   
+    </td>
+  </tr>
+  <tr>
+    <th class='api'>Returns</th>
+    <td>
+      <b>precision: <i>float (if <code>average</code> is not None)</i></b> or <b><i>array of float of shape (n_unique_labels)</i></b><br/>
+      <p style="margin-left: 2.5%">Precision of the positive class in binary classification or weighted average of the precision of each class for the multiclass task.</p>
     </td>
   </tr>
 </table>
