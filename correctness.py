@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 def confusion_matrix(y_true, y_pred):
-    return pd.crosstab(y_true, y_pred)
+    return pd.crosstab(y_pred, y_true)
 
 def accuracy(cm):    
     return np.diag(cm).sum() / cm.sum().sum()
@@ -117,7 +117,7 @@ def f1_score(cm, average='binary', pos_label = 0):
 
 def support(cm, average = 'binary', pos_label=0):
     if average == 'binary':
-        return cm.sum(axis=1)[pos_label]
+        return cm.sum(axis=0)[pos_label]
     else:
         return cm.sum().sum()
 
@@ -157,10 +157,10 @@ def report(cm):
 ################################################################################
 # Test:
 if __name__ == '__main__':
-    y_target = [1, 1, 1, 0, 0, 2, 0, 3]
-    y_predicted = [1, 0, 1, 0, 0, 2, 1, 3]
+    y_target = ['dog', 'cat', 'dog', 'cat', 'dog', 'dog', 'cat', 'dog', 'cat', 'dog', 'dog', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat']
+    y_predicted = ['dog', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat', 'cat', 'cat', 'cat', 'dog', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat']
 
-    test = pd.DataFrame([[7, 8, 9], [1, 2, 3], [3, 2, 1]])
-    print(test)
+    cm = confusion_matrix(y_target, y_predicted)    
+    print(cm)
     print()
-    print(report(test))
+    print(report(cm))
