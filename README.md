@@ -71,7 +71,7 @@ In the this module, I provide five different performance metrics and techniques 
 
 <p style="font-size: 1.17em;">In a confusion matrix, there are 4 numbers to pay attention to:
 
-<li><b>True Positives:</b> The number of positive observations the model correctly predicted as positive.</li>
+<li><b>True Positive:</b> The number of positive observations the model correctly predicted as positive.</li>
 
 <li><b>False Positive:</b> The number of negative observations the model incorrectly predicted as positive.</li>
 
@@ -105,7 +105,7 @@ In the this module, I provide five different performance metrics and techniques 
 
 <table style="width: 97.5%; margin-left: 2.5%">
   <tr>
-    <th>Parameters</th>
+    <th class='api'>Parameters</th>
     <td>
       <b>y_true: <i>array-like of shape (n_samples)</i></b><br/>
       <p style="margin-left: 2.5%">Ground truth (correct) target values.</p>
@@ -114,17 +114,42 @@ In the this module, I provide five different performance metrics and techniques 
     </td>
   </tr>
   <tr>
-    <th>Returns</th>
+    <th class='api'>Returns</th>
     <td>
       <b>C: <i>DataFrame of shape (n_classes, n_classes)</i></b><br/>
       <p style="margin-left: 2.5%">Confusion matrix whose i-th row and j-th column entry indicates the number of samples with predicted label being i-th class and true label being j-th class.</p>
     </td>
   </tr>
-</table><br/>
-
+</table>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 2. correctness.accuracy
 
+<p style="font-size: 1.17em;"><i>The overall <b>accuracy</b> of a model is simply the number of correct predictions divided by the total number of predictions. An accuracy score will give a value between 0 and 1, a value of 1 would indicate a perfect model.</i></p>
+
+<p style="text-align:left;">
+  <pre><code>accuracy(cm)</code><span style="float:right;">[<a href="https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L7">source</a>]</span></pre>
+</p>
+
+<p style="margin-left: 2.5%">Accuracy classification score.</p>
+
+<table style="width: 97.5%; margin-left: 2.5%">
+  <tr>
+    <th class='api'>Parameters</th>
+    <td>
+      <b>cm: <i>DataFrame of shape (n_classes, n_classes)</i></b><br/>
+      <p style="margin-left: 2.5%">Confusion matrix whose i-th row and j-th column entry indicates the number of samples with predicted label being i-th class and true label being j-th class.</p>     
+    </td>
+  </tr>
+  <tr>
+    <th class='api'>Returns</th>
+    <td>
+      <b>score: <i>float</i></b><br/>
+      <p style="margin-left: 2.5%">The fraction of correctly classified samples </p>
+    </td>
+  </tr>
+</table>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Usage
 
