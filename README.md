@@ -1,3 +1,4 @@
+<a name="readme-top"></a>
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -22,38 +23,48 @@
 </details>
 
 
-## About The Project
+# About The Project
 
 This is a part of my Introduction to Data Science's assignment at university. In this part, I tried to write my own module for classification evaluation metrics, based on the sklearn.metrics
 
 
 
-### Built With
+## Built With
 
 * [![Numpy][Numpy-shield]][Numpy-url]
 * [![Pandas][Pandas-shield]][Pandas-url]
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Getting Started
+
+## Prerequisites
+To use this module, your system needs to have:
+* numpy
+  ```sh
+  pip install numpy
+  ```
+* pandas
+  ```sh
+  pip install pandas
+  ```
+
+## Installation
+You can install this module by cloning this repository into your current working directory:
+```sh
+git clone https://github.com/theEmperorofDaiViet/correctness.git
+```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# API Documentation
 
 
-## Getting Started
 
-### Prerequisites
-
-
-
-### Installation
+# Usage
 
 
 
-## API Documentation
-
-
-
-## Usage
-
-
-
-## Contact
+# Contact
 
 
 
