@@ -358,6 +358,40 @@ In the this module, I provide seven different performance metrics and techniques
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Usage
+<p style="font-size: 1.17em;"><i>Let me illustrate how to use this module to evaluate a classification model.</i></p>
+
+## Example 1:
+Inside the module, I already provided a [test case](https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L160") for it. Since I placed it in the <code>__main__</code> block, you can test it yourself by running the file as a script. I will reinstroduce it here:
+
+### Actual values and Predicted values
+```python
+>>> y_target = ['dog', 'cat', 'dog', 'cat', 'dog', 'dog', 'cat', 'dog', 'cat', 'dog', 'dog', 'dog', 
+... 'dog', 'cat', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat']
+>>> y_predicted = ['dog', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat', 'cat', 'cat', 'cat', 'dog', 'dog', 
+... 'dog', 'cat', 'dog', 'dog', 'cat', 'dog', 'dog', 'cat']
+```
+### Compute confusion matrix
+```python
+>>> cm = confusion_matrix(y_target, y_predicted)    
+>>> print(cm)
+       cat  dog
+cat      6    2
+dog      1   11
+```
+### Return classification report
+```python
+>>> report(cm)
+CLASSIFICATION REPORT:
+   precision    recall  f1-score  support
+0   0.750000  0.857143      0.80        7
+1   0.916667  0.846154      0.88       13
+          precision    recall  f1-score  support
+
+macro      0.833333  0.851648     0.840       20
+micro      0.850000  0.850000     0.850       20
+weighted   0.858333  0.850000     0.852       20
+accuracy    0.85
+```
 
 
 
