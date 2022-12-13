@@ -63,7 +63,7 @@ An important element of any machine learning workflow is the evaluation of the p
 
 In real-world classification problems, it is usually impossible for a model to be 100% correct. When evaluating a model it is, therefore, useful to know, not only how wrong the model was, but in which way the model was wrong.
 
-In the this module, I provide five different performance metrics and techniques you can use to evaluate a classifier.
+In the this module, I provide seven different performance metrics and techniques you can use to evaluate a classifier.
 
 ## 1. correctness.confusion_matrix
 
@@ -292,7 +292,7 @@ In the this module, I provide five different performance metrics and techniques 
 </table>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## correctness.support
+## 6. correctness.support
 
 <p style="font-size: 1.17em;"><i><b>Support</b> is the number of actual occurrences of the class in the specified dataset.</i></p>
 
@@ -326,6 +326,32 @@ In the this module, I provide five different performance metrics and techniques 
     <td>
       <b>support: <i>int</i></b><br/>
       <p style="margin-left: 2.5%">Support of the specified class or the total number of samples of the dataset.</p>
+    </td>
+  </tr>
+</table>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 7. correctness.report
+
+<p style="text-align:left;">
+  <pre><code>report(cm)</code><span style="float:right;">[<a href="https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L124">source</a>]</span></pre>
+</p>
+
+<p style="margin-left: 2.5%">Build a text report showing all the classification metrics above.</p>
+
+<table style="width: 97.5%; margin-left: 2.5%">
+  <tr>
+    <th class='api'>Parameters</th>
+    <td>
+      <b>cm: <i>DataFrame of shape (n_classes, n_classes)</i></b><br/>
+      <p style="margin-left: 2.5%">Confusion matrix whose i-th row and j-th column entry indicates the number of samples with predicted label being i-th class and true label being j-th class.</p> 
+    </td>
+  </tr>
+  <tr>
+    <th class='api'>Returns</th>
+    <td>
+      <b><i>None</i></b><br/>
+      <p style="margin-left: 2.5%">This is a side effect function.</p>
     </td>
   </tr>
 </table>
