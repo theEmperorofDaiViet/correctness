@@ -292,6 +292,45 @@ In the this module, I provide five different performance metrics and techniques 
 </table>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## correctness.support
+
+<p style="font-size: 1.17em;"><i><b>Support</b> is the number of actual occurrences of the class in the specified dataset.</i></p>
+
+<p style="font-size: 1.17em;">Imbalanced support in the training data may indicate structural weaknesses in the reported scores of the classifier and could indicate the need for stratified sampling or rebalancing.</p>
+
+<p style="text-align:left;">
+  <pre><code>support(cm, average = 'binary', pos_label=0)</code><span style="float:right;">[<a href="https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L118">source</a>]</span></pre>
+</p>
+
+<p style="margin-left: 2.5%">Compute the support.</p>
+
+<table style="width: 97.5%; margin-left: 2.5%">
+  <tr>
+    <th class='api'>Parameters</th>
+    <td>
+      <b>cm: <i>DataFrame of shape (n_classes, n_classes)</i></b><br/>
+      <p style="margin-left: 2.5%">Confusion matrix whose i-th row and j-th column entry indicates the number of samples with predicted label being i-th class and true label being j-th class.</p>
+      <b>average: <i>{‘micro’, ‘macro’, ‘weighted’, ‘binary’}</i></b> or <b><i>None, default=’binary’</i></b><br/>
+      <p style="margin-left: 2.5%">This parameter determines which value would be returned:
+        <li style="margin-left: 2.5%"><code>'binary'</code>:</li>
+        <p style="margin-left: 5%">Return support of the class specified by <code>pos_label</code>.</p>
+        <li style="margin-left: 2.5%"><b>else</b>:</li>
+        <p style="margin-left: 5%">Return <code>n_samples</code> of the specified dataset.</p>
+      </p>
+      <b>pos_label: <i>int, default=0</i></b><br/>
+      <p style="margin-left: 2.5%">The class to report if <code>average='binary'</code>. If <code>average != 'binary'</code>, this will be ignored.</p>   
+    </td>
+  </tr>
+  <tr>
+    <th class='api'>Returns</th>
+    <td>
+      <b>support: <i>int</i></b><br/>
+      <p style="margin-left: 2.5%">Support of the specified class or the total number of samples of the dataset.</p>
+    </td>
+  </tr>
+</table>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 # Usage
 
 
