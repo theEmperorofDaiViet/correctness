@@ -107,7 +107,7 @@ def f1_score(cm, average='binary', pos_label = 0):
 
     elif average == 'micro':
         pre = precision(cm, average='micro')
-        rec = precision(cm, average='micro')
+        rec = recall(cm, average='micro')
         return 2 * pre * rec / (pre + rec)
 
     elif average == 'weighted':
