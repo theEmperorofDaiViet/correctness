@@ -361,7 +361,7 @@ In the this module, I provide seven different performance metrics and techniques
 <p style="font-size: 1.17em;"><i>Let me illustrate how to use this module to evaluate a classification model.</i></p>
 
 ## Example 1:
-Inside the module, I already provided a [test case](https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L160") for it. Since I placed it in the <code>__main__</code> block, you can test it yourself by running the file as a script. I will reinstroduce it here:
+Inside the module, I already provided a [test case](https://github.com/theEmperorofDaiViet/correctness/blob/master/correctness.py#L160") for it. Since I placed it in the <code>__main__</code> block, you can test it yourself by running the file as a script. I will reintroduce it here:
 
 ### Actual values and Predicted values
 ```python
@@ -385,16 +385,71 @@ CLASSIFICATION REPORT:
    precision    recall  f1-score  support
 0   0.750000  0.857143      0.80        7
 1   0.916667  0.846154      0.88       13
-          precision    recall  f1-score  support
 
+          precision    recall  f1-score  support
 macro      0.833333  0.851648     0.840       20
 micro      0.850000  0.850000     0.850       20
 weighted   0.858333  0.850000     0.852       20
 accuracy    0.85
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Example 2:
+Besides the simple test case above, I will also provide a more objective example by building a classification model and then evaluating it.
 
+More specifically, I will build a Gaussian Naive Bayes model to classify the dry bean dataset from [Kaggle](https://www.kaggle.com/datasets/muratkokludataset/dry-bean-dataset).
 
+### Import libraries, modules and load data
+```python
+>>> from Naive_Bayes import Gaussian_Naive_Bayes
+>>> import correctness
+>>> import pandas as pd
+>>> import numpy as np
+>>> from sklearn.model_selection import train_test_split
+
+>>> df = pd.read_excel('Dry_Bean_Dataset.xlsx')
+>>> df.shape
+(13611, 17)
+```
+<p style="margin-left: 2.5%">The <code>Naive_Bayes</code> module I import is my other built-from-scratch module that implements Naive Bayes algorithms. It is a supervised learning method based on applying Bayes’ theorem with strong (naive) feature independence assumptions. You can check it out <a href="https://github.com/theEmperorofDaiViet/naive_bayes">here</a>.</p>
+
+### Preprocess and split data
+```python
+>>> data = df.drop(['ConvexArea','EquivDiameter','AspectRation','Eccentricity','Class','Area','Perimeter',
+... 'ShapeFactor2','ShapeFactor3','ShapeFactor1','ShapeFactor4'],axis = 1)
+>>> target = df['Class']
+
+>>> X = np.array(data)
+>>> y = np.array(target)
+
+>>> X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+```
+
+### Perform classification using this module and evaluate the model performance
+```python
+>>> nb = Gaussian_Naive_Bayes()
+>>> nb.fit(X_train, y_train)
+>>> y_pred = nb.predict(X_test)
+
+>>> cm = correctness.confusion_matrix(y_test, y_pred)
+>>> scratch = correctness.accuracy(cm)
+>>> correctness.report(cm)
+CLASSIFICATION REPORT:
+   precision    recall  f1-score  support
+0   0.853846  0.840909  0.847328      264
+1   0.989796  1.000000  0.994872       97
+2   0.914773  0.901961  0.908322      357
+3   0.914986  0.895628  0.905203      709
+4   0.935829  0.951087  0.943396      368
+5   0.947368  0.951923  0.949640      416
+6   0.834915  0.859375  0.846968      512
+
+          precision    recall  f1-score  support                                                
+macro      0.913073  0.914412  0.913676     2723
+micro      0.904150  0.904150  0.904150     2723
+weighted   0.904404  0.904150  0.904196     2723
+accuracy    0.90415
+```
 # Contact
 
 
