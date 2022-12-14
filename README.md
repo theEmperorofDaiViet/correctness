@@ -450,15 +450,36 @@ micro      0.904150  0.904150  0.904150     2723
 weighted   0.904404  0.904150  0.904196     2723
 accuracy    0.90415
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 # Contact
+You can contact me via:
+* [![GitHub][GitHub-shield]][GitHub-url]
+* [![LinkedIn][LinkedIn-shield]][LinkedIn-url]
+* ![Gmail][Gmail-shield]:&nbsp;<i>Khiet.To.05012001@gmail.com</i>
+* [![Facebook][Facebook-shield]][Facebook-url]
+* [![Twitter][Twitter-shield]][Twitter-url]
 
-
+<br/>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
+<!-- Tech stack -->
 [Numpy-shield]: https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white
 [Numpy-url]: https://numpy.org
 [Pandas-shield]: https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white
 [Pandas-url]: https://pandas.pydata.org
+
+<!-- Contact -->
+[GitHub-shield]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
+[GitHub-url]: https://github.com/theEmperorofDaiViet
+[LinkedIn-shield]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
+[LinkedIn-url]: https://www.linkedin.com/in/khiet-to/
+[Gmail-shield]: https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white
+[Facebook-shield]: https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white
+[Facebook-url]: https://www.facebook.com/Khiet.To.Official/
+[Twitter-shield]: https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white
+[Twitter-url]: https://twitter.com/KhietTo
 
 ### Style Sheets
 Github's markdown processor cannot render ```<style>``` sheets, so you may see it lying here:
